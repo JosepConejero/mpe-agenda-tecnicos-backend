@@ -4,6 +4,7 @@ const CursoSchema = Schema({
   title: { type: String, required: true },
   frequent: { type: Boolean, required: true },
   flc: { type: Boolean, required: true },
+  isInvited: { type: Boolean, default: false },
 });
 
 CursoSchema.method("toJSON", function () {
