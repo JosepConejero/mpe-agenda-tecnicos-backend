@@ -33,6 +33,12 @@ router.post(
     )
       .not()
       .isEmpty(),
+    check(
+      "isInvited",
+      "Es obligatorio especificar si el invitado tiene acceso a este curso"
+    )
+      .not()
+      .isEmpty(),
     validarCampos,
   ],
   crearEvento
@@ -47,6 +53,12 @@ router.put(
     check(
       "isThereOffice2h",
       "Es obligatorio indicar si hay formaciones de 2 horas o no"
+    )
+      .not()
+      .isEmpty(),
+    check(
+      "isInvited",
+      "Es obligatorio especificar si el invitado tiene acceso a este curso"
     )
       .not()
       .isEmpty(),
