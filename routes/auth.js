@@ -25,6 +25,12 @@ router.post(
     check("password", "El password ha de ser de 6 caracteres").isLength({
       min: 6,
     }),
+    check(
+      "isInvited",
+      "Es obligatorio especificar si el invitado tiene acceso a este curso"
+    )
+      .not()
+      .isEmpty(),
     validarCampos,
   ],
   crearUsuario
@@ -37,6 +43,12 @@ router.post(
     check("password", "El password ha de ser de 6 caracteres").isLength({
       min: 6,
     }),
+    check(
+      "isInvited",
+      "Es obligatorio especificar si el invitado tiene acceso a este curso"
+    )
+      .not()
+      .isEmpty(),
     validarCampos,
   ],
   loginUsuario
@@ -52,6 +64,12 @@ router.patch(
     check("password", "El password ha de ser de 6 caracteres").isLength({
       min: 6,
     }),
+    check(
+      "isInvited",
+      "Es obligatorio especificar si el invitado tiene acceso a este curso"
+    )
+      .not()
+      .isEmpty(),
     validarCampos,
   ],
   actualizarPasswordUsuario
