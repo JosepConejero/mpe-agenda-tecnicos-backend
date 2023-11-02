@@ -32,6 +32,7 @@ const EventoSchema = Schema({
       },
     },
   ],
+  isInvited: { type: Boolean, default: false },
 });
 
 EventoSchema.method("toJSON", function () {
