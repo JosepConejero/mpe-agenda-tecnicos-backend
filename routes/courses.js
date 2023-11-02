@@ -30,6 +30,12 @@ router.post(
     check("flc", "Es obligatorio especificar si el curso es de la FLC")
       .not()
       .isEmpty(),
+    check(
+      "isInvited",
+      "Es obligatorio especificar si el invitado tiene acceso a este curso"
+    )
+      .not()
+      .isEmpty(),
     validarCampos,
   ],
   crearCurso
@@ -43,6 +49,12 @@ router.put(
       .not()
       .isEmpty(),
     check("flc", "Es obligatorio especificar si el curso es de la FLC")
+      .not()
+      .isEmpty(),
+    check(
+      "isInvited",
+      "Es obligatorio especificar si el invitado tiene acceso a este curso"
+    )
       .not()
       .isEmpty(),
     validarCampos,
