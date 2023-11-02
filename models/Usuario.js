@@ -13,6 +13,7 @@ const UsuarioSchema = Schema({
   canSeeStatistics: { type: Boolean, required: true },
   isStillWorking: { type: Boolean, required: true },
   isExternal: { type: Boolean, default: false },
+  isInvited: { type: Boolean, default: false },
 });
 
 UsuarioSchema.method("toJSON", function () {
