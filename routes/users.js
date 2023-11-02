@@ -75,6 +75,12 @@ router.put(
     check("isExternal", "Es obligatorio especificar si el usuario es de MPE")
       .not()
       .isEmpty(),
+    check(
+      "isInvited",
+      "Es obligatorio especificar si el invitado tiene acceso a este curso"
+    )
+      .not()
+      .isEmpty(),
     validarCampos,
   ],
   actualizarUsuario
