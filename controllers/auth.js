@@ -5,7 +5,7 @@ const Usuario = require("../models/Usuario");
 const { generarJWT } = require("../helpers/jwt");
 
 const crearUsuario = async (req, res = response) => {
-  const { email, password } = req.body;
+  const { email, password, isInvited } = req.body;
 
   try {
     let usuario = await Usuario.findOne({ email });
@@ -21,6 +21,7 @@ const crearUsuario = async (req, res = response) => {
 
     const salt = bcrypt.genSaltSync();
     usuario.password = bcrypt.hashSync(password, salt);
+
     usuario.shortName = "";
     usuario.isAdmin = false;
     usuario.isActivated = false;
@@ -29,6 +30,7 @@ const crearUsuario = async (req, res = response) => {
     usuario.canFLC = false;
     usuario.canSeeStatistics = false;
     usuario.isStillWorking = true;
+    usuario.isInvited = isInvited;
 
     await usuario.save();
 
@@ -48,6 +50,7 @@ const crearUsuario = async (req, res = response) => {
       canFLC: usuario.canFLC,
       canSeeStatistics: usuario.canSeeStatistics,
       isStillWorking: usuario.isStillWorking,
+      isInvited: usuario.isInvited,
     });
   } catch (error) {
     console.log(error);
@@ -94,6 +97,7 @@ const loginUsuario = async (req, res = response) => {
       canFLC: usuario.canFLC,
       canSeeStatistics: usuario.canSeeStatistics,
       isStillWorking: usuario.isStillWorking,
+      isInvited: usuario.isInvited,
     });
   } catch (error) {
     console.log(error);
@@ -129,6 +133,7 @@ const revalidarToken = async (req, res = response) => {
       canFLC: usuario.canFLC,
       canSeeStatistics: usuario.canSeeStatistics,
       isStillWorking: usuario.isStillWorking,
+      isInvited: usuario.isInvited,
     });
   } catch (error) {
     console.log(error);
